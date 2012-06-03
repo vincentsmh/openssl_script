@@ -62,8 +62,8 @@ else
 	else
 		if [ -f "$1" ]
 		then
-			decrypt_one $1
-			rm -f $1
+			decrypt_one "$1"
+			rm -f "$1"
 		else
 			echo -e
 			echo -e "File or directory does not exist."
