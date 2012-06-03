@@ -16,8 +16,8 @@ How to use
 	`~/dec.sh file.des3`  
 
 4. Encrypt/Decrypt all files under a folder:  
-	~/enc.sh
-	~/dec.sh
+	`~/enc.sh`  
+	`~/dec.sh`
 
 Changelog
 =========
