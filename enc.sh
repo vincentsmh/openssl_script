@@ -39,15 +39,16 @@ function encrypt_one()
 			in="$1"
 			out="$1.des3"
 
+			echo -ne "$1: "
+
 			# The file has been encrypted.
 			if [ $check_des3 == ".des3" ]
 			then
-				echo -e "\033[0;31mNo encryption necessary.\033[0m"
-				exit 1;
+				echo -e "\033[0;31mEncrypting unnecessary.\033[0m"
+				return 1
 			fi
 
 			# Check if the file has been compressed
-			echo -ne "$1 ... "
 			if [ $check_gz != ".gz" ]
 			then
 				echo -ne "\033[0;34mCompressing\033[0m ... "
