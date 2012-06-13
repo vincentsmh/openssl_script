@@ -7,7 +7,7 @@ function check_end_char()
 		revised_name=${1:0:len-1}
 		echo $revised_name
 	else
-		echo $1
+		echo "$1"
 	fi
 }
 
@@ -15,12 +15,12 @@ function encrypt_one()
 {
 	if [ -d "$1" ]
 	then
-		fn=$(check_end_char $1)
+		fn=$(check_end_char "$1")
 		# Encrypt a directory
-		echo -ne "$fn... "
-		echo -ne "\031[0;33mCompressing\033[0m] ..."
+		echo -e "$fn: "
+		echo -e "\033[0;33mCompressing\033[0m ..."
 		tar zcvf "$fn.tar.gz" "$fn"
-		echo -ne "\032[0;33mEncrypting\033[0m] ..."
+		echo -ne "\033[0;33mEncrypting\033[0m ... "
 		openssl enc -des3 -e -in "$fn.tar.gz" -out "$fn.tar.gz.des3" -kfile ~/Desktop/.key
 		echo -e "\033[0;32mdone\033[0m"
 
