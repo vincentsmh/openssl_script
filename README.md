@@ -3,6 +3,10 @@ Introduction
 Use openssl (des3) to encrypt and decrypt files and folers.
 
 
+Installation
+============
+bash setup.sh
+
 How to use
 ==========
 1. Put enc.sh and dec.sh to home folder ~ (or whereever you want to).

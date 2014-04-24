@@ -16,7 +16,7 @@ function decrypt_one()
 
 	# Start decrypting
 	echo -ne "\033[1;34mDecrypting\033[0m ..."
-	openssl enc -des3 -d -in "$1" -out "$gz_name" -kfile ~/Desktop/.key
+	openssl enc -des3 -d -in "$1" -out "$gz_name" -kfile ~/.key
 
 	echo -ne "\033[1;35mDecompressing\033[0m ... "
 	if [ $file_type_tar == ".tar" ]
