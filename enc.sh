@@ -1,3 +1,5 @@
+KEY=~/.key
+
 function check_end_char()
 {
 	len=${#1}
@@ -21,7 +23,7 @@ function encrypt_one()
 		echo -e "\033[0;33mCompressing\033[0m ..."
 		tar zcvf "$fn.tar.gz" "$fn"
 		echo -ne "\033[0;33mEncrypting\033[0m ... "
-		openssl enc -des3 -e -in "$fn.tar.gz" -out "$fn.tar.gz.des3" -kfile ~/.key
+		openssl enc -des3 -e -in "$fn.tar.gz" -out "$fn.tar.gz.des3" -kfile ${KEY}
 		echo -e "\033[0;32mdone\033[0m"
 
 		if [ -f "$fn.tar.gz.des3" ]
@@ -58,7 +60,7 @@ function encrypt_one()
 			fi
 
 			echo -ne "\033[0;35mEncrypting\033[0m ... "
-			openssl enc -des3 -e -in "$in" -out "$out" -kfile ~/.key
+			openssl enc -des3 -e -in "$in" -out "$out" -kfile ${KEY}
 			echo -e "\033[0;32mdone\033[0m"
 
 			if [ -f "$out" ]

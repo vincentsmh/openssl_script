@@ -9,8 +9,8 @@ function color_msg
 
 sudo cp $ENC_SRC $DST_PATH/enc
 sudo cp $DEC_SRC $DST_PATH/dec
-sudo chmod +x $DST_PATH/enc
-sudo chmod +x $DST_PATH/dec
+sudo chmod 755 $DST_PATH/enc
+sudo chmod 755 $DST_PATH/dec
 
 echo -e
 color_msg 32 "Please put your key at " -n
