@@ -1,3 +1,4 @@
+#!/bin/bash
 KEY=~/.key
 
 function decrypt_one()

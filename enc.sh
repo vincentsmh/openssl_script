@@ -1,3 +1,4 @@
+#!/bin/bash
 KEY=~/.key
 
 function check_end_char()
