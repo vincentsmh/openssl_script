@@ -2,7 +2,7 @@
 
 ENC_SRC=enc.sh
 DEC_SRC=dec.sh
-DST_PATH=/usr/bin
+DST_PATH=/usr/local/bin
 
 function color_msg
 {
