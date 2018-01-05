@@ -2,16 +2,12 @@
 KEY=~/.key
 dont_rm=0
 
-function rm_tail_slash()
+function encrypt_all()
 {
-	len=${#1}
-	end_char=${1:len-1}
-	if [ $end_char == "/" ]; then
-		revised_name=${1:0:len-1}
-		echo $revised_name
-	else
-		echo "$1"
-	fi
+	for i in *
+	do
+		encrypt_one "$i"
+	done
 }
 
 function encrypt_one()
@@ -85,18 +81,37 @@ function encrypt_one()
   fi
 }
 
-function encrypt_all()
+function print_usage()
 {
-	for i in *
-	do
-		encrypt_one "$i"
-	done
+  echo -e
+  echo -e "Usage: enc [-dr|-h|--help] [DIR | FILE]"
+  echo -e "  If there is no DIR or FILE given, all files and directories in "
+  echo -e "  current folder will be encrypted."
+  echo -e
+  echo -e "  -dr: don't remove original file/directory"
+  echo -e "  -h|--help: print this message"
+  echo -e
+  exit 0
+}
+
+function rm_tail_slash()
+{
+	len=${#1}
+	end_char=${1:len-1}
+	if [ $end_char == "/" ]; then
+		revised_name=${1:0:len-1}
+		echo $revised_name
+	else
+		echo "$1"
+	fi
 }
 
 # Check if argument is given.
 if [ "$1" == "-dr" ]; then
   dont_rm=1
   shift 1
+elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+  print_usage
 fi
 
 if [ -z "$1" ]; then
