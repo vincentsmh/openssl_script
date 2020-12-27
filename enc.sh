@@ -40,14 +40,14 @@ function encrypt_one()
       echo -ne "$1: "
 
       # The file has been encrypted.
-      if [ $check_des3 == ".des3" ]; then
+      if [ "$check_des3" == ".des3" ]; then
         echo -e "\033[0;31mAlready encrypted\033[0m"
         return 0
       fi
 
       # Check if the file has been compressed
       local keep_gz_f=0
-      if [ $check_gz != ".gz" ]; then
+      if [ "$check_gz" != ".gz" ]; then
         keep_gz_f=1
         echo -ne "\033[0;34mCompressing\033[0m ... "
         if [ $dont_rm -ne 0 ]; then
@@ -98,7 +98,7 @@ function rm_tail_slash()
 {
 	len=${#1}
 	end_char=${1:len-1}
-	if [ $end_char == "/" ]; then
+	if [ "$end_char" == "/" ]; then
 		revised_name=${1:0:len-1}
 		echo $revised_name
 	else

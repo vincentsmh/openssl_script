@@ -12,7 +12,7 @@ function decrypt_one()
 	file_type_tar=${file_name:len_fn-4}
 
 	# Decrypt a file.  Check if it is .des format first
-	if [ $file_type1 != ".des3" ]; then
+	if [ "$file_type1" != ".des3" ]; then
 		echo -e "The given file is not encrypted by DES3"
 		exit 0
 	fi
@@ -22,7 +22,7 @@ function decrypt_one()
 	openssl enc -des3 -d -in "$1" -out "$gz_name" -kfile ${KEY}
 
 	echo -ne "\033[1;35mDecompressing\033[0m ... "
-	if [ $file_type_tar == ".tar" ]
+	if [ "$file_type_tar" == ".tar" ]
 	then
 		tar zxvf "$gz_name"
 		rm -f "$gz_name"
